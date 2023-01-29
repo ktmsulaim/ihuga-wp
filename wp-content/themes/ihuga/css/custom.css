@@ -1,0 +1,40 @@
+.header-logo a {
+    text-decoration: none !important;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+section.section {
+    margin: 0;
+    padding: 4rem 0;
+    border: 0;
+}
+
+#notifications {
+    padding: 0;
+    margin: 0;
+}
+
+#notifications li {
+    list-style: none;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #F1F6F9;
+    padding: 0.75rem 1rem;
+    color: #212529;
+}
+
+#notifications li:last-child {
+    border: 0;
+}
+
+#notifications li .date {
+    display: block;
+    color: #666;
+    font-size: .70rem;
+}
+
+#viewMoreMembers a::after {
+    content: '>';
+    transform: translate3d(0, -50%, 0) rotate(0deg);
+}

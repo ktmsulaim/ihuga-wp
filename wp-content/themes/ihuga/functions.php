@@ -25,7 +25,6 @@ function scripts()
     wp_enqueue_script('flipSlideshow', get_theme_file_uri('/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js'), NULL, '1.0.0', true);
     wp_enqueue_script('customJS', get_theme_file_uri('/js/custom.js'), NULL, '1.0.0', true);
     wp_enqueue_script('initThemes', get_theme_file_uri('/js/theme.init.js'), NULL, '1.0.0', true);
-
 }
 
 add_action('after_setup_theme', 'website_features');
@@ -99,33 +98,37 @@ function pageHeader(array $attributes = ['title' => null, 'page_banner' => null,
 
 ?>
 
-    <div class="header" id="secondary" style="background-image: url(<?php echo $attributes['page_banner'] ?? get_theme_file_uri('/img/banner.jpg'); ?>);">
+    <section class="page-header page-header-modern page-header-background page-header-background-pattern page-header-background-md overlay overlay-color-dark overlay-show overlay-op-5" style="background-image: url(<?php echo $attributes['page_banner'] ?? get_theme_file_uri('/img/patterns/wild_oliva.png'); ?>);">
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <div class="header-box">
-                        <div class="title"><?php echo $attributes['title']; ?></div>
-                        <div class="breadcrumb-wrapper">
-                            <ul class="breadcrumb">
-                                <li><a href="<?php echo esc_url(site_url('/')); ?>">Home</a></li>
+                <div class="col-md-12 align-self-center p-static order-2 text-center">
+                    <h1><?php echo $attributes['title']; ?></h1>
+                </div>
+                <div class="col-md-12 align-self-center order-1">
+                    <ul class="breadcrumb breadcrumb-light d-block text-center">
+                        <li><a href="<?php echo esc_url(site_url('/')); ?>">Home</a></li>
+                        <?php
+                        if ($attributes && $attributes['breadcrumb'] && count($attributes['breadcrumb'])) :
+                            foreach ($attributes['breadcrumb'] as $bc) :
+                                if ($bc['url'] && is_current_uri($bc['url'])) :
+                        ?>
+                                    <li><?php echo $bc['label']; ?></li>
                                 <?php
-                                if ($attributes && $attributes['breadcrumb'] && count($attributes['breadcrumb'])) :
-                                    foreach ($attributes['breadcrumb'] as $bc) :
+                                else :
                                 ?>
-                                        <li><a href="<?php echo $bc['url']; ?>"><?php echo $bc['label']; ?></a></li>
+                                    <li><a href="<?php echo $bc['url']; ?>"><?php echo $bc['label']; ?></a></li>
                                 <?php
-                                    endforeach;
                                 endif;
                                 ?>
-
-                            </ul>
-                        </div>
-                    </div>
+                        <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </ul>
                 </div>
             </div>
         </div>
-
-    </div>
+    </section>
 <?php
 }
 
@@ -315,4 +318,21 @@ function formatSizeUnits($bytes)
     }
 
     return $bytes;
+}
+
+if (!function_exists('formatDate')) {
+    function formatDate($date)
+    {
+        if (empty($date)) return;
+
+        try {
+            $timestamp = strtotime($date);
+            if ($timestamp === FALSE) {
+                $timestamp = strtotime(str_replace('/', '-', $date));
+            }
+            return date('d-m-Y', $timestamp);
+        } catch (\Throwable $th) {
+            return $date;
+        }
+    }
 }

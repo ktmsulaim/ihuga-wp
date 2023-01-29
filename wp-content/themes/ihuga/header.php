@@ -5,21 +5,22 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<?php echo get_theme_file_uri('img/logo.png') ?>" type="image/x-icon" />
     <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light&display=swap" rel="stylesheet" type="text/css">
     <?php wp_head(); ?>
 </head>
 
 <body data-plugin-page-transition <?php body_class(); ?>>
     <div class="body">
-        <header id="header" class="header-transparent header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
+        <header id="header" class="<?php echo is_current_uri('/') ? 'header-transparent' : ''; ?> header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': true, 'stickyStartAt': 30, 'stickyHeaderContainerHeight': 70}">
             <div class="header-body border-top-0 header-body-bottom-border">
                 <div class="header-container container">
                     <div class="header-row">
                         <div class="header-column">
                             <div class="header-row">
                                 <div class="header-logo">
-                                    <a href="index.html">
-                                        <img alt="Porto" width="82" height="40" src="img/logo-default-slim-small.png">
+                                    <a href="<?php echo esc_url(site_url('/')); ?>">
+                                        IHUGA
                                     </a>
                                 </div>
                             </div>
@@ -31,37 +32,42 @@
                                         <nav class="collapse">
                                             <ul class="nav nav-pills" id="mainNav">
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="index.html">
+                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/'); ?>" href="<?php echo esc_url(site_url('/')); ?>">
                                                         Home
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="index.html">
+                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/about-us/'); ?>" href="<?php echo esc_url(site_url('/about-us')); ?>">
+                                                        About Us
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/vision-and-mission/'); ?>" href="<?php echo esc_url(site_url('/vision-and-mission')); ?>">
                                                         Vision & Mission
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="index.html">
+                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/managing-committee/'); ?>" href="<?php echo esc_url(site_url('/managing-committee')); ?>">
                                                         Managing Committee
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="index.html">
+                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/members/'); ?>" href="<?php echo esc_url(site_url('/members')); ?>">
                                                         Members
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="index.html">
-                                                        Photo Gallery
+                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/events/'); ?>" href="<?php echo esc_url(site_url('/events')); ?>">
+                                                        Events
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="index.html">
+                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/circulars/'); ?>" href="<?php echo esc_url(site_url('/circulars')); ?>">
                                                         Circulars
                                                     </a>
                                                 </li>
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle" href="index.html">
+                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/contact-us/'); ?>" href="<?php echo esc_url(site_url('/contact-us')); ?>">
                                                         Contact Us
                                                     </a>
                                                 </li>
