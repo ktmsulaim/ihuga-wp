@@ -38,3 +38,21 @@ section.section {
     content: '>';
     transform: translate3d(0, -50%, 0) rotate(0deg);
 }
+
+.core-committee-photo {
+    min-height: 360px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.core-committee-assistants-photo {
+    min-height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.mr-2 {
+    margin-right: 5px;
+}

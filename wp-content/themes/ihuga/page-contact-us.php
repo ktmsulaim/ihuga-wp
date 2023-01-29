@@ -20,11 +20,14 @@ pageHeader([
                 <div class="card border-0">
                     <div class="card-body">
                         <h4>Location</h4>
-                        <p>
+                        <p class="mb-2">
                             1st Floor, Harsh Planet View Building <br> Opp. Kuniyil Kavu, Kalathilkunnu <br> Ashokapuram (P.O.), Pin: 673001 <br> Calicut, Kerala, India
 
-                            <a href="https://goo.gl/maps/UrA36qmiZdc9HUdd9" target="_blank" class="text-decoration-none mt-1 d-block"><i class="fa fa-map-marker mr-2"></i> Locate on Google Maps</a>
                         </p>
+                        <div class="mb-4">
+                            <a href="<?php echo get_theme_file_uri('img/location-map.jpeg'); ?>" data-plugin-options="{'type':'image'}" class="lightbox btn btn-sm btn-rounded btn-primary d-inline-block mr-3"><i class="fa fa-search-plus mr-2"></i> View Location Map</a>
+                            <a href="https://goo.gl/maps/UrA36qmiZdc9HUdd9" target="_blank" class="btn btn-sm btn-outline btn-rounded btn-primary d-inline-block"><i class="fa fa-map-marker mr-2"></i> Locate on Google Maps</a>
+                        </div>
 
                         <h4>Call Us</h4>
                         <p class="m-0">

@@ -80,7 +80,7 @@ get_header();
                         </div>
 
                         <?php if ($events_count > 2) : ?>
-                            <a href="#" class="btn btn-modern btn-primary btn-arrow-effect-1">View More <i class="fas fa-arrow-right ms-2"></i></a>
+                            <a href="<?php echo esc_url(site_url('/events')); ?>" class="btn btn-modern btn-primary btn-arrow-effect-1">View More <i class="fas fa-arrow-right ms-2"></i></a>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -227,7 +227,7 @@ get_header();
                                 <div class="card card-default">
                                     <div class="card-header bg-color-primary" id="viewMoreMembers">
                                         <h4 class="card-title m-0">
-                                            <a href="" class="text-color-light font-weight-bold">View More</a>
+                                            <a href="<?php echo esc_url(site_url('/members')); ?>" class="text-color-light font-weight-bold">View More</a>
                                         </h4>
                                     </div>
                                 </div>

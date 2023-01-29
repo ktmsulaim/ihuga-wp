@@ -98,7 +98,7 @@ function pageHeader(array $attributes = ['title' => null, 'page_banner' => null,
 
 ?>
 
-    <section class="page-header page-header-modern page-header-background page-header-background-pattern page-header-background-md overlay overlay-color-dark overlay-show overlay-op-5" style="background-image: url(<?php echo $attributes['page_banner'] ?? get_theme_file_uri('/img/patterns/wild_oliva.png'); ?>);">
+    <section class="page-header page-header-modern page-header-background page-header-background-pattern page-header-background-md overlay overlay-color-dark overlay-show overlay-op-5 mb-0" style="background-image: url(<?php echo $attributes['page_banner'] ?? get_theme_file_uri('/img/patterns/wild_oliva.png'); ?>);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 align-self-center p-static order-2 text-center">
@@ -285,22 +285,6 @@ function get_subcategory_ids($category)
     return $data;
 }
 
-add_filter('pre_get_posts', 'query_post_type');
-
-function query_post_type($query)
-{
-    if (!is_admin() && $query->is_main_query()) {
-        $culture = get_cat_ID('culture');
-        $article = get_cat_ID('article');
-
-        if ($query->is_category($culture) || $query->is_category($article) || $query->is_category(get_subcategory_ids($culture))) {
-            $query->set('post_type', 'artwork');
-
-            return $query;
-        }
-    }
-}
-
 function formatSizeUnits($bytes)
 {
     if ($bytes >= 1073741824) {
@@ -334,5 +318,41 @@ if (!function_exists('formatDate')) {
         } catch (\Throwable $th) {
             return $date;
         }
+    }
+}
+
+if(!function_exists('getPhoneNumbers')) {
+    function getPhoneNumbers(WP_Post|null $post, bool $formatted = false) {
+        if(!$post) return;
+
+        $phone_numbers = [];
+
+        for ($i=1; $i < 11; $i++) { 
+            $number = trim(get_field('phone_phone_' . $i, $post->ID));
+
+            if($number) {
+                array_push($phone_numbers, $formatted ? "<a class='text-decoration-none d-inline-block' href='tel:".$number."'>".$number."</a>" : $number);
+            }
+        }
+
+        if(!count($phone_numbers)) return;
+
+        return implode($formatted ? " | " : ", ", $phone_numbers);
+    }
+}
+
+if(!function_exists('getPositionByNumber')) {
+    function getPositionByNumber(int $number)
+    {
+       $position_map = [
+        1 => 'President',
+        2 => 'Vice President',
+        3 => 'General Secretary',
+        4 => 'Joint Secretary',
+        5 => 'Treasurer',
+        6 => 'Executive Member'
+       ];
+
+       return in_array($number, array_keys($position_map)) ? $position_map[$number] : null;
     }
 }

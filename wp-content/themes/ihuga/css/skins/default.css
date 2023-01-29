@@ -7182,3 +7182,7 @@ html .slide-overlay.slide-overlay-gradient .slotholder:after {
 html.boxed .body {
 	border-top-color: #030886;
 }
+
+.pagination .page-item.active .page-link:hover {
+	color: var(--secondary);
+}
