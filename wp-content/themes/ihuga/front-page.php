@@ -133,7 +133,7 @@ get_header();
                         <h3 class="text-color-dark font-weight-bold text-transform-none line-height-1 text-10 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">Indian Hajj Umrah Group Association</h3>
                     </div>
                     <p class="text-color-dark custom-font-secondary text-5-5 line-height-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Indian Hajj Umrah Group Association, was established in the year 2007 under the provisions of Govt of India, Societies Act 21 of 1860 with the intention to coordinate and control the functioning of all such authorized groups and individuals who organize pilgrimage tours to the holy places in Saudi Arabia.</p>
-                    <p class="text-3-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">The Association has 36 Private Tour Operators of Kerala, who conduct Haj, Umrah pilgrimage, as its members. All of these PTOs are registered by Ministry Of External Affairs, Govt of India. The Govt of India had been issuing license to all our members to conduct the Haj tour every year for the haj of that particular year.</p>
+                    <p class="text-3-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">The Association has 115 Private Tour Operators of Kerala, who conduct Haj, Umrah pilgrimage, as its members. All of these PTOs are registered by Haj Division, Ministry Of Minority Affairs, Govt of India. The Govt of India had been issuing license to all our members to conduct the Haj tour every year for the haj of that particular year.</p>
                     <a href="<?php echo esc_url(site_url('/about-us')); ?>" class="d-inline-flex align-items-center text-color-primary font-weight-bold text-4 text-decoration-none custom-link-effect-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="800">
                         Read More
                     </a>
@@ -191,7 +191,11 @@ get_header();
                 'order' => 'ASC'
             ]);
 
-            $total_members = wp_count_posts('member')->publish;
+            try {
+                $total_members = wp_count_posts('member')->publish;
+            } catch (\Throwable $e) {
+                $total_members = 0;
+            }
 
             if ($members->have_posts()) :
             ?>

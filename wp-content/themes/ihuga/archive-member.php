@@ -2,12 +2,12 @@
 get_header();
 
 pageHeader([
-    'title' => get_the_title(),
+    'title' => 'Members',
     'page_banner' => null,
     'breadcrumb' => [
         0 => [
-            'label' => get_the_title(),
-            'url' => get_the_permalink()
+            'label' => 'Members',
+            'url' => get_post_type_archive_link(get_post_type())
         ]
     ]
 ]);

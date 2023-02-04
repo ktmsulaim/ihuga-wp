@@ -322,7 +322,7 @@ if (!function_exists('formatDate')) {
 }
 
 if(!function_exists('getPhoneNumbers')) {
-    function getPhoneNumbers(WP_Post|null $post, bool $formatted = false) {
+    function getPhoneNumbers($post, bool $formatted = false) {
         if(!$post) return;
 
         $phone_numbers = [];

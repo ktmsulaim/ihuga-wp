@@ -7,7 +7,7 @@ pageHeader([
     'breadcrumb' => [
         0 => [
             'label' => 'Circulars',
-            'url' => get_the_permalink()
+            'url' => get_post_type_archive_link(get_post_type())
         ]
     ]
 ])
@@ -23,11 +23,15 @@ pageHeader([
                     ?>
                         <div class="card border-0 mb-3">
                             <div class="card-body">
-                                <h4 class="card-title mb-1 text-4 font-weight-bold d-flex justify-content-between"><span><?php echo get_the_title(); ?></span> <span class="text-1 font-weight-normal"><?php echo formatDate(get_the_date()); ?></span> </h4>
+                                <h4 class="card-title mb-1 text-4 font-weight-bold d-flex justify-content-between">
+                                    <?php if (get_field('file')) : ?>
+                                        <a href="<?php echo get_field('file'); ?>"><?php echo get_the_title(); ?></a>
+                                    <?php else: ?>
+                                        <span><?php echo get_the_title(); ?></span>
+                                    <?php endif; ?>
+                                    <span class="text-1 font-weight-normal"><?php echo formatDate(get_the_date()); ?></span>
+                                </h4>
                                 <p class="card-text"><?php echo short_content(); ?></p>
-                                <?php if (get_field('file')) : ?>
-                                    <a href="<?php echo get_field('file'); ?>" class="btn btn-primary btn-modern">Download</a>
-                                <?php endif; ?>
                             </div>
                         </div>
                     <?php endwhile; ?>
