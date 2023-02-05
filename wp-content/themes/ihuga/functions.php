@@ -321,38 +321,97 @@ if (!function_exists('formatDate')) {
     }
 }
 
-if(!function_exists('getPhoneNumbers')) {
-    function getPhoneNumbers($post, bool $formatted = false) {
-        if(!$post) return;
+if (!function_exists('getPhoneNumbers')) {
+    function getPhoneNumbers($post, bool $formatted = false)
+    {
+        if (!$post) return;
 
         $phone_numbers = [];
 
-        for ($i=1; $i < 11; $i++) { 
+        for ($i = 1; $i < 11; $i++) {
             $number = trim(get_field('phone_phone_' . $i, $post->ID));
 
-            if($number) {
-                array_push($phone_numbers, $formatted ? "<a class='text-decoration-none d-inline-block' href='tel:".$number."'>".$number."</a>" : $number);
+            if ($number) {
+                array_push($phone_numbers, $formatted ? "<a class='text-decoration-none d-inline-block' href='tel:" . $number . "'>" . $number . "</a>" : $number);
             }
         }
 
-        if(!count($phone_numbers)) return;
+        if (!count($phone_numbers)) return;
 
         return implode($formatted ? " | " : ", ", $phone_numbers);
     }
 }
 
-if(!function_exists('getPositionByNumber')) {
+if (!function_exists('getPositionByNumber')) {
     function getPositionByNumber(int $number)
     {
-       $position_map = [
-        1 => 'President',
-        2 => 'Vice President',
-        3 => 'General Secretary',
-        4 => 'Joint Secretary',
-        5 => 'Treasurer',
-        6 => 'Executive Member'
-       ];
+        $position_map = [
+            1 => 'President',
+            2 => 'Vice President',
+            3 => 'General Secretary',
+            4 => 'Joint Secretary',
+            5 => 'Treasurer',
+            6 => 'Executive Member'
+        ];
 
-       return in_array($number, array_keys($position_map)) ? $position_map[$number] : null;
+        return in_array($number, array_keys($position_map)) ? $position_map[$number] : null;
     }
 }
+
+if (!function_exists('getCompanyByCommitteeMember')) {
+    function getCompanyByCommitteeMember(WP_Post $committeeMember)
+    {
+        if (!$committeeMember) return;
+
+        $company = get_field('company', $committeeMember->ID);
+
+        return $company ? $company->post_title : null;
+    }
+}
+
+if (!function_exists('getWebsiteByCommitteeMember')) {
+    function getWebsiteByCommitteeMember(WP_Post $committeeMember)
+    {
+        if (!$committeeMember) return 'N/A';
+
+        $company = get_field('company', $committeeMember->ID);
+
+        if (!$company) return 'N/A';
+
+        $website = get_field('website', $company->ID);
+
+        if (!$website) return $company->post_title;
+
+        return '<a class="text-decoration-none d-inline-block" href="' . $website . '" target="_blank">' . $company->post_title . '</a>';
+    }
+}
+
+add_action('pre_get_posts', 'sort_members_by_order');
+function sort_members_by_order($query)
+{
+    if (is_archive() && !is_admin() && $query->is_main_query() && get_post_type() == 'member') {
+        $query->set('orderby', 'meta_value');
+        $query->set('meta_key', 'order');
+        $query->set('order', 'ASC');
+    }
+}
+
+
+add_filter('query_vars', 'add_category_query_params_to_members_archive');
+function add_category_query_params_to_members_archive($vars) {
+    array_push($vars, 'category', 'per_page');
+    return $vars;
+}
+
+add_action( 'pre_get_posts', function( \WP_Query $q )
+{
+    if( ! is_admin() && $q->is_main_query() )
+    {
+        $paged = abs((int)get_query_var('per_page'));
+        if( ! empty( $paged ) && $paged >= 1 ){
+            $q->set( 'posts_per_page', $paged );
+        } elseif($paged === 0){
+            $q->set( 'posts_per_page', -1 );
+        }
+    }
+} );

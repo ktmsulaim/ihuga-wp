@@ -13,11 +13,11 @@ pageHeader([
 ])
 ?>
 
-<section class="section bg-color-light">
+<section class="section">
     <div class="container" style="background-image: url(<?php echo get_theme_file_uri('img/map-location-sc.png'); ?>);">
         <div class="row">
-            <div class="col-5 offset-md-2">
-                <div class="card border-0">
+            <div class="col-12 col-md-5 offset-md-2">
+                <div class="card border-0 rounded-0">
                     <div class="card-body">
                         <h4>Location</h4>
                         <p class="mb-2">
@@ -25,7 +25,7 @@ pageHeader([
 
                         </p>
                         <div class="mb-4">
-                            <a href="<?php echo get_theme_file_uri('img/location-map.jpeg'); ?>" data-plugin-options="{'type':'image'}" class="lightbox btn btn-sm btn-rounded btn-primary d-inline-block mr-3"><i class="fa fa-search-plus mr-2"></i> View Location Map</a>
+                            <a href="<?php echo get_theme_file_uri('img/location-map.jpeg'); ?>" data-plugin-options="{'type':'image'}" class="lightbox btn btn-sm btn-rounded btn-primary d-inline-block mr-3 mb-xs-1"><i class="fa fa-search-plus mr-2"></i> View Location Map</a>
                             <a href="https://goo.gl/maps/UrA36qmiZdc9HUdd9" target="_blank" class="btn btn-sm btn-outline btn-rounded btn-primary d-inline-block"><i class="fa fa-map-marker mr-2"></i> Locate on Google Maps</a>
                         </div>
 

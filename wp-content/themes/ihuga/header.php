@@ -31,43 +31,43 @@
                                     <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-2 header-nav-main-sub-effect-1">
                                         <nav class="collapse">
                                             <ul class="nav nav-pills" id="mainNav">
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/'); ?>" href="<?php echo esc_url(site_url('/')); ?>">
+                                                <li>
+                                                    <a class="<?php is_active('/'); ?>" href="<?php echo esc_url(site_url('/')); ?>">
                                                         Home
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/about-us/'); ?>" href="<?php echo esc_url(site_url('/about-us')); ?>">
+                                                <li>
+                                                    <a class="<?php is_active('/about-us/'); ?>" href="<?php echo esc_url(site_url('/about-us')); ?>">
                                                         About Us
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/vision-and-mission/'); ?>" href="<?php echo esc_url(site_url('/vision-and-mission')); ?>">
+                                                <li>
+                                                    <a class="<?php is_active('/vision-and-mission/'); ?>" href="<?php echo esc_url(site_url('/vision-and-mission')); ?>">
                                                         Vision & Mission
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/managing-committee/'); ?>" href="<?php echo esc_url(site_url('/managing-committee')); ?>">
+                                                <li>
+                                                    <a class="<?php is_active('/managing-committee/'); ?>" href="<?php echo esc_url(site_url('/managing-committee')); ?>">
                                                         Managing Committee
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/members/'); ?>" href="<?php echo esc_url(site_url('/members')); ?>">
+                                                <li>
+                                                    <a class="<?php is_active('/members/'); ?>" href="<?php echo esc_url(site_url('/members')); ?>">
                                                         Members
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/events/'); ?>" href="<?php echo esc_url(site_url('/events')); ?>">
+                                                <li>
+                                                    <a class="<?php is_active('/events/'); ?>" href="<?php echo esc_url(site_url('/events')); ?>">
                                                         Events
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/circulars/'); ?>" href="<?php echo esc_url(site_url('/circulars')); ?>">
+                                                <li>
+                                                    <a class="<?php is_active('/circulars/'); ?>" href="<?php echo esc_url(site_url('/circulars')); ?>">
                                                         Circulars
                                                     </a>
                                                 </li>
-                                                <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle <?php is_active('/contact-us/'); ?>" href="<?php echo esc_url(site_url('/contact-us')); ?>">
+                                                <li>
+                                                    <a class="<?php is_active('/contact-us/'); ?>" href="<?php echo esc_url(site_url('/contact-us')); ?>">
                                                         Contact Us
                                                     </a>
                                                 </li>
@@ -82,9 +82,9 @@
                                     <div class="header-nav-feature header-nav-features-search d-inline-flex">
                                         <a href="#" class="header-nav-features-toggle text-decoration-none" data-focus="headerSearch"><i class="fas fa-search header-nav-top-icon"></i></a>
                                         <div class="header-nav-features-dropdown header-nav-features-dropdown-mobile-fixed" id="headerTopSearchDropdown">
-                                            <form role="search" action="page-search-results.html" method="get">
+                                            <form role="search" action="<?php echo esc_url(site_url('/')); ?>" method="get">
                                                 <div class="simple-search input-group">
-                                                    <input class="form-control text-1" id="headerSearch" name="q" type="search" value="" placeholder="Search...">
+                                                    <input class="form-control text-1" id="headerSearch" name="s" type="search" value="<?php echo get_query_var('s'); ?>" placeholder="Search...">
                                                     <button class="btn" type="submit">
                                                         <i class="fas fa-search header-nav-top-icon"></i>
                                                     </button>

@@ -16,7 +16,7 @@ pageHeader([
 <section class="section bg-color-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5 mb-xs-4">
                 <div class="cascading-images-wrapper">
                     <div class="cascading-images position-relative">
                         <img src="<?php echo get_theme_file_uri('img/haj/madina-2.jpeg'); ?>" class="appear-animation" width="500" alt="" data-appear-animation="fadeInUpShorter" data-appear-animation-duration="600ms" data-plugin-options="{'accY': -300}" />

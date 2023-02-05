@@ -46,13 +46,35 @@ section.section {
     background-position: center;
 }
 
-.core-committee-assistants-photo {
-    min-height: 150px;
+.core-committee-assistants-photo,
+.executive-committee-photo {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
+.core-committee-assistants-photo {
+    min-height: 150px;
+}
+
+.executive-committee-photo {
+    height: 110px;
+    width: 110px;
+    border-radius: 100%;
+    display: block;
+    margin: 15px;
+}
+
 .mr-2 {
     margin-right: 5px;
+}
+
+@media screen and (max-width: 568px) {
+    .mb-xs-1 {
+        margin-bottom: 5px;
+    }
+    
+    .mb-xs-4 {
+        margin-bottom: 15px;
+    }
 }

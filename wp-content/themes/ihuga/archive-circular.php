@@ -17,7 +17,7 @@ pageHeader([
     <div class="container">
         <div class="row">
             <?php if (have_posts()) : ?>
-                <div class="col-7 m-auto">
+                <div class="col-12 col-md-7 m-auto">
                     <?php while (have_posts()) :
                         the_post();
                     ?>

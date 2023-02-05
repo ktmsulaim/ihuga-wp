@@ -22,7 +22,7 @@ get_header();
     <section class="section section-default border-0">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 mb-xs-4">
                     <h3 class="text-primary text-uppercase text-4 mb-3" style="font-weight:600;">Latest Events</h3>
                     <div class="">
                         <div class="row">
@@ -138,9 +138,9 @@ get_header();
                         Read More
                     </a>
                 </div>
-                <div class="col-5 col-sm-7 col-md-12 col-lg-6 text-center">
+                <div class="col-12 col-sm-7 col-md-12 col-lg-6 text-center">
                     <div class="position-relative z-index-2">
-                        <img src="<?php echo get_theme_file_uri('img/haj-photo-1.jpeg'); ?>" class="appear-animation border-radius-2 box-shadow-3" width="500" alt="" data-appear-animation="expandIn" data-appear-animation-duration="600ms" />
+                        <img src="<?php echo get_theme_file_uri('img/haj-photo-1.jpeg'); ?>" class="appear-animation border-radius-2 box-shadow-3 img-fluid" width="500" alt="" data-appear-animation="expandIn" data-appear-animation-duration="600ms" />
                     </div>
 
                     <div class="patterns opacity-7 position-absolute z-index-1 d-none d-md-block" style="bottom: -8%; right: 9%;">
