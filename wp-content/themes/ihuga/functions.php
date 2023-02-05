@@ -45,7 +45,7 @@ function short_content($words = 10)
     if (has_excerpt()) {
         return get_the_excerpt();
     } else {
-        wp_trim_words(wp_strip_all_tags(get_the_content()), $words);
+       return wp_trim_words(wp_strip_all_tags(get_the_content()), $words);
     }
 }
 
