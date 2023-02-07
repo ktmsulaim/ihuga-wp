@@ -386,6 +386,17 @@ if (!function_exists('getWebsiteByCommitteeMember')) {
     }
 }
 
+if(!function_exists('getMembersCount')) {
+    function getMembersCount()
+    {
+        try {
+            return wp_count_posts('member')->publish;
+        } catch (\Throwable $th) {
+            return 115;
+        }
+    }
+}
+
 add_action('pre_get_posts', 'sort_members_by_order');
 function sort_members_by_order($query)
 {

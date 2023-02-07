@@ -43,30 +43,7 @@ get_header();
 
                             ?>
                                     <div class="col-sm-6 col-lg-6 mb-4 pb-2">
-                                        <a href="<?php echo get_the_permalink(); ?>">
-                                            <article>
-                                                <div class="thumb-info thumb-info-no-borders thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom border-radius-0">
-                                                    <div class="thumb-info-wrapper thumb-info-wrapper-opacity-6">
-                                                        <img class="img-fluid" src="<?php echo has_post_thumbnail() ? the_post_thumbnail_url() : get_theme_file_uri('img/placeholder.jpg'); ?>" alt="">
-                                                        <div class="thumb-info-title bg-transparent p-4">
-                                                            <div class="thumb-info-type bg-color-primary px-2 mb-1"><?php echo formatDate(get_field('event_date')); ?></div>
-                                                            <div class="thumb-info-inner mt-1">
-                                                                <h2 class="text-color-light line-height-2 text-4 font-weight-bold mb-0"><?php echo get_the_title(); ?></h2>
-                                                            </div>
-                                                            <div class="thumb-info-show-more-content">
-                                                                <p class="mb-0 text-1 line-height-9 mb-1 mt-2 text-light opacity-5">
-                                                                    <?php if (has_excerpt()) :
-                                                                        echo get_the_excerpt();
-                                                                    else :
-                                                                        echo substr(strip_tags(get_the_content()), 0, 100);
-                                                                    endif; ?>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </a>
+                                        <?php echo get_template_part('template-parts/single', 'event', ['size' => 200]); ?>
                                     </div>
                                 <?php
                                 endwhile;
@@ -133,7 +110,7 @@ get_header();
                         <h3 class="text-color-dark font-weight-bold text-transform-none line-height-1 text-10 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">Indian Hajj Umrah Group Association</h3>
                     </div>
                     <p class="text-color-dark custom-font-secondary text-5-5 line-height-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">Indian Hajj Umrah Group Association, was established in the year 2007 under the provisions of Govt of India, Societies Act 21 of 1860 with the intention to coordinate and control the functioning of all such authorized groups and individuals who organize pilgrimage tours to the holy places in Saudi Arabia.</p>
-                    <p class="text-3-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">The Association has 115 Private Tour Operators of Kerala, who conduct Haj, Umrah pilgrimage, as its members. All of these PTOs are registered by Haj Division, Ministry Of Minority Affairs, Govt of India. The Govt of India had been issuing license to all our members to conduct the Haj tour every year for the haj of that particular year.</p>
+                    <p class="text-3-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">The Association has <?php echo getMembersCount(); ?> Private Tour Operators of Kerala, who conduct Haj, Umrah pilgrimage, as its members. All of these PTOs are registered by Haj Division, Ministry Of Minority Affairs, Govt of India. The Govt of India had been issuing license to all our members to conduct the Haj tour every year for the haj of that particular year.</p>
                     <a href="<?php echo esc_url(site_url('/about-us')); ?>" class="d-inline-flex align-items-center text-color-primary font-weight-bold text-4 text-decoration-none custom-link-effect-1 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="800">
                         Read More
                     </a>

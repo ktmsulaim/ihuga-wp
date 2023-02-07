@@ -69,6 +69,20 @@ section.section {
     margin-right: 5px;
 }
 
+.min-height-200px {
+    min-height: 12rem;
+}
+
+.min-height-300px {
+    min-height: 18rem;
+}
+
+.bg-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 @media screen and (max-width: 568px) {
     .mb-xs-1 {
         margin-bottom: 5px;
