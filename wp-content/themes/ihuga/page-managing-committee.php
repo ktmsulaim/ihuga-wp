@@ -12,9 +12,6 @@ pageHeader([
     ]
 ]);
 
-
-
-
 ?>
 
 <section class="section bg-color-light">
@@ -29,23 +26,33 @@ pageHeader([
 
         <div class="row mt-5">
             <?php
-            $president = array_shift(get_posts([
+            $president = get_posts([
                 'post_type' => 'committee_member',
-                'meta_key' => 'position',
-                'meta_value' => 1
-            ]));
+                'meta_query' => [
+                    [
+                        'key' => 'position',
+                        'value' => 1
+                    ]
+                ]
+            ])[0];
+            
+            wp_reset_postdata();
 
-            $generalSecretary = array_shift(get_posts([
+            $generalSecretary = get_posts([
                 'post_type' => 'committee_member',
                 'meta_key' => 'position',
                 'meta_value' => 3
-            ]));
+            ])[0];
 
-            $treasurer = array_shift(get_posts([
+            wp_reset_postdata();
+
+            $treasurer = get_posts([
                 'post_type' => 'committee_member',
                 'meta_key' => 'position',
                 'meta_value' => 5
-            ]));
+            ])[0];
+
+            wp_reset_postdata();
             ?>
             <div class="col-md-4 mb-5 mb-md-0 appear-animation animated fadeInLeftShorter appear-animation-visible" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
                 <a class="d-block core-committee-photo hover-effect-2 mb-3" style="background-image: url(<?php echo has_post_thumbnail($president) ? get_the_post_thumbnail_url($president) : get_theme_file_uri('img/team/team-1.jpg'); ?>);"></a>
