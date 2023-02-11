@@ -347,34 +347,59 @@
 	if (typeof theme.Account !== 'undefined' && ($('#headerAccount').length || $('#headerSignUp').length || $('#headerSignIn').length || $('#headerRecover').length || $('#headerRecoverCancel').length)) {
 		theme.Account.initialize();
 	}
-	
-	// News Ticker
-	if ($.isFunction($.fn['bootstrapNews']) && $('notifications-list').length) {
-		$(".notifications-list").bootstrapNews({
 
-			// number of items per page
-			newsPerPage: 2,
+	// Gallery thumbs
+	theme.fn.intObs( '.thumb-gallery-wrapper', function(){
+		var $thumbGalleryDetail = $(this).find('.thumb-gallery-detail'),
+			$thumbGalleryThumbs = $(this).find('.thumb-gallery-thumbs'),
+			flag = false,
+			duration = 300;
 
-			// shows up/down navigation
-			navigation: true,
+		$thumbGalleryDetail
+			.owlCarousel({
+				items: 1,
+				margin: 10,
+				nav: true,
+				dots: false,
+				loop: false,
+				autoHeight: true,
+				navText: [],
+				rtl: ( $('html').attr('dir') == 'rtl' ) ? true : false
+			})
+			.on('changed.owl.carousel', function(e) {
+				if (!flag) {
+					flag = true;
+					$thumbGalleryThumbs.trigger('to.owl.carousel', [e.item.index-1, duration, true]);
 
-			// enables autoplay
-			autoplay: true,
+					$thumbGalleryThumbs.find('.owl-item').removeClass('selected');
+					$thumbGalleryThumbs.find('.owl-item').eq( e.item.index ).addClass('selected');
+					flag = false;
+				}
+			});
 
-			// or 'down'
-			direction: 'up',
+		
+		$thumbGalleryThumbs
+			.owlCarousel({
+				margin: 15,
+				items: $(this).data('thumbs-items') ? $(this).data('thumbs-items') : 4,
+				nav: false,
+				center: $(this).data('thumbs-center') ? true : false,
+				dots: false,
+				rtl: ( $('html').attr('dir') == 'rtl' ) ? true : false
+			})
+			.on('click', '.owl-item', function() {
+				$thumbGalleryDetail.trigger('to.owl.carousel', [$(this).index(), duration, true]);
+			})
+			.on('changed.owl.carousel', function(e) {
+				if (!flag) {
+					flag = true;
+					$thumbGalleryDetail.trigger('to.owl.carousel', [e.item.index, duration, true]);
+					flag = false;
+				}
+			});
 
-			// animation speed
-			animationSpeed: 'normal',
-
-			// autoplay interval
-			newsTickerInterval: 4000,
-
-			// pause on hover
-			pauseOnHover: true,
-
-		});
-	}
+		$thumbGalleryThumbs.find('.owl-item').eq(0).addClass('selected');
+	}, {});
 
 
 }).apply(this, [jQuery]);
