@@ -43,28 +43,30 @@ try {
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-md-7 mx-auto">
-                <hr class="gradient">
-            </div>
-        </div>
 
         <?php if ($has_gallery) : ?>
+            <div class="row">
+                <div class="col-12 col-md-7 mx-auto">
+                    <hr class="gradient">
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12 col-md-7 mx-auto">
                     <div class="thumb-gallery-wrapper">
                         <div class="thumb-gallery-detail owl-carousel owl-theme manual nav-inside nav-style-1 nav-dark mb-3">
                             <?php foreach ($images as $image) : ?>
                                 <div>
-                                    <img src="<?php echo $image; ?>" class="img-fluid" alt="Event photo">
+                                    <a class="lightbox" href="<?php echo $image; ?>" data-plugin-options="{'type':'image'}">
+                                        <img src="<?php echo $image; ?>" class="img-fluid" alt="Event photo">
+                                    </a>
                                 </div>
                             <?php endforeach; ?>
                         </div>
                         <div class="thumb-gallery-thumbs owl-carousel owl-theme manual thumb-gallery-thumbs">
-                        <?php foreach ($images as $image) : ?>
+                            <?php foreach ($images as $image) : ?>
                                 <div>
                                     <span class="d-block cur-pointer">
-                                        <img  src="<?php echo $image; ?>" class="img-fluid">
+                                        <img src="<?php echo $image; ?>" class="img-fluid">
                                     </span>
                                 </div>
                             <?php endforeach; ?>
