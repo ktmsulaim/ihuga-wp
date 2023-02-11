@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <div role="main" class="main">
-    <section class="section border-0 video overlay overlay-show overlay-color-light overlay-op-8 m-0" data-video-path="<?php echo get_theme_file_uri('video/header'); ?>" data-plugin-video-background data-plugin-options="{'posterType': 'jpg', 'position': '50% 50%'}" style="height: 100vh;">
+    <section class="section border-0 video overlay overlay-show overlay-color-light overlay-op-5 m-0" data-video-path="<?php echo get_theme_file_uri('video/header'); ?>" data-plugin-video-background data-plugin-options="{'posterType': 'jpg', 'position': '50% 50%'}" style="height: 100vh;">
         <div class="container position-relative z-index-3 h-100">
             <div class="row align-items-center h-100">
                 <div class="col">
