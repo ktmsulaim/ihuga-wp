@@ -38,7 +38,7 @@ pageHeader([
                         </p>
 
                         <h4>Office Hours</h4>
-                        <p class="m-0">10:00 AM to 05:00 AM</p>
+                        <p class="m-0">10:00 AM to 05:00 PM</p>
                         <p>Monday to Saturday</p>
         
                         <h4>Write to Us</h4>

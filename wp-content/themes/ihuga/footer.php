@@ -1,7 +1,7 @@
 <footer id="footer" class="m-0">
 	<div class="container">
 		<div class="row py-5">
-		<div class="col-md-4 col-lg-3 mb-4 mb-lg-0 d-flex align-items-center">
+			<div class="col-md-4 col-lg-3 mb-4 mb-lg-0 d-flex align-items-center">
 				<span class="logo pe-0 pe-lg-3">
 					<img alt="IHUGA Logo" src="<?php echo get_theme_file_uri('img/logo-white.png') ?>" height="80">
 				</span>
@@ -20,7 +20,36 @@
 						<p class="m-0 text-color-light">Mon - Sat: 10 AM to 5 PM</p>
 					</li>
 					<li class="mb-1"><i class="far fa-envelope text-color-secondary"></i>
-						<p class="m-0"><a class="text-color-light" href="mailto:mail@example.com">ihuga1@gmail.com</a></p>
+						<p class="m-0"><a class="text-color-light" href="mailto:ihuga1@gmail.com">ihuga1@gmail.com</a></p>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-4 col-lg-3 mb-4 mb-lg-0">
+				<h5 class="text-3 mb-0 pb-1 opacity-6">IMPORTANT LINKS</h5>
+				<ul class="list list-icons list-icons-sm">
+					<li>
+						<i class="fas fa-caret-right"></i>
+						<a target="_blank" href="https://hajcommittee.gov.in/" class="text-decoration-none text-color-light">Haj Committee of India</a>
+					</li>
+					<li>
+						<i class="fas fa-caret-right"></i>
+						<a target="_blank" href="http://haj.nic.in/pto/" class="text-decoration-none text-color-light">Ministry Of Minority Affairs</a>
+					</li>
+					<li>
+						<i class="fas fa-caret-right"></i>
+						<a target="_blank" href="http://www.cgijeddah.org/consulate/pto/LoginPTO.aspx" class="text-decoration-none text-color-light">Consulate General of India, Jeddah</a>
+					</li>
+					<li>
+						<i class="fas fa-caret-right"></i>
+						<a target="_blank" href="https://ehaj.haj.gov.sa/EH/login.xhtml?dswid=-6142" class="text-decoration-none text-color-light">Unified Portal for External Hajj</a>
+					</li>
+					<li>
+						<i class="fas fa-caret-right"></i>
+						<a target="_blank" href="http://haj.gov.in/base/home.php" class="text-decoration-none text-color-light">Haj Division</a>
+					</li>
+					<li>
+						<i class="fas fa-caret-right"></i>
+						<a target="_blank" href="https://www.minorityaffairs.gov.in/" class="text-decoration-none text-color-light">Ministry of Minority Affairs</a>
 					</li>
 				</ul>
 			</div>

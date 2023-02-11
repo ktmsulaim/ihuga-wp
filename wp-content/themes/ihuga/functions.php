@@ -21,10 +21,12 @@ function scripts()
 
     wp_enqueue_script('modernizr', get_theme_file_uri('/vendor/modernizr/modernizr.min.js'), NULL, '1.0.0', false);
     wp_enqueue_script('plugins', get_theme_file_uri('/vendor/plugins/js/plugins.min.js'), NULL, '1.0.0', true);
-    wp_enqueue_script('themeSpecific', get_theme_file_uri('/js/theme.js'), NULL, '1.0.0', true);
     wp_enqueue_script('flipSlideshow', get_theme_file_uri('/vendor/circle-flip-slideshow/js/jquery.flipshow.min.js'), NULL, '1.0.0', true);
-    wp_enqueue_script('customJS', get_theme_file_uri('/js/custom.js'), NULL, '1.0.0', true);
+    // wp_enqueue_script('bootstrapNewsTicker', get_theme_file_uri('/js/jquery.bootstrap.newsbox.min.js'), NULL, '1.0.0', true);
+    wp_enqueue_script('easyTicker', get_theme_file_uri('/js/jquery.easy-ticker.min.js'), NULL, '1.0.0', true);
+    wp_enqueue_script('themeSpecific', get_theme_file_uri('/js/theme.js'), NULL, '1.0.0', true);
     wp_enqueue_script('initThemes', get_theme_file_uri('/js/theme.init.js'), NULL, '1.0.0', true);
+    wp_enqueue_script('customJS', get_theme_file_uri('/js/custom.js'), NULL, '1.0.0', true);
 }
 
 add_action('after_setup_theme', 'website_features');
@@ -393,6 +395,16 @@ if(!function_exists('getMembersCount')) {
             return wp_count_posts('member')->publish;
         } catch (\Throwable $th) {
             return 115;
+        }
+    }
+}
+
+if(!function_exists('getMinistry')) {
+    function getMinistry() {
+        try {
+            return get_field('ministry', get_page_by_path('about-us')) ?? "Haj Division, Ministry of Minority Affairs, Govt of India";
+        } catch (\Throwable $th) {
+            return "Haj Division, Ministry of Minority Affairs, Govt of India";
         }
     }
 }

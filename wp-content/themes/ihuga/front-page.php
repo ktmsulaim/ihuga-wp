@@ -64,11 +64,11 @@ get_header();
                 <div class="col-lg-4">
                     <h3 class="text-primary text-uppercase text-4 mb-3" style="font-weight:600;">Notifications</h3>
                     <div class="card">
-                        <div class="card-body p-0" style="min-height: 270px;">
+                        <div class="card-body p-0 notifications-list">
                             <?php
                             $notifications = new WP_Query([
                                 'post_type' => 'notification',
-                                'posts_per_page' => 3,
+                                'posts_per_page' => 10,
                             ]);
 
                             if ($notifications->have_posts()) :

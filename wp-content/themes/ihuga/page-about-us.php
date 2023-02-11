@@ -33,7 +33,7 @@ pageHeader([
             <div class="col-md-7 text-justify">
                 <p>Indian Hajj Umrah Group Association, was established in the year 2007 under the provisions of Govt of India, Societies Act 21 of 1860 with the intention to coordinate and control the functioning of all such authorized groups and individuals who organize pilgrimage tours to the holy places in Saudi Arabia.</p>
                 <p>The Association has <?php echo getMembersCount(); ?> Private Tour Operators of Kerala, who conduct Haj, Umrah pilgrimage, as its members. All of these PTOs are registered by Haj Division, Ministry Of Minority Affairs, Govt of India. The Govt of India had been issuing license to all our members to conduct the Haj tour every year for the haj of that particular year.</p>
-                <p>Registration by Haj Division, Ministry of Minority Affairs, Govt of India, is a prerequisite for enrolling as member of the Association. The Association verifies the validity of the license of each member and its record of conducting tours before admitting it to the membership of the Association.</p>
+                <p>Registration by <?php echo getMinistry(); ?>, is a prerequisite for enrolling as member of the Association. The Association verifies the validity of the license of each member and its record of conducting tours before admitting it to the membership of the Association.</p>
                 <p>The Association has two constituent bodies, a general body which consists of all the PTOs and an elected executive body which consists not less than 7 members but not more than 31 members. The office bearers are elected from among the executive committee, whose tenure is determined as 3 years.</p>
             </div>
         </div>
