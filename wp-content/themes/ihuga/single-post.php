@@ -43,8 +43,12 @@ try {
             </div>
         </div>
 
-        <hr class="gradient">
-        
+        <div class="row">
+            <div class="col-12 col-md-7 mx-auto">
+                <hr class="gradient">
+            </div>
+        </div>
+
         <?php if ($has_gallery) : ?>
             <div class="row">
                 <div class="col-12 col-md-7 mx-auto">
