@@ -351,7 +351,7 @@ if (!function_exists('getPositionByNumber')) {
             1 => 'President',
             2 => 'Vice President',
             3 => 'General Secretary',
-            4 => 'Joint Secretary',
+            4 => 'Secretary',
             5 => 'Treasurer',
             6 => 'Executive Member'
         ];

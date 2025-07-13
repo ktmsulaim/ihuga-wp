@@ -19,7 +19,7 @@ pageHeader([
         <div class="row">
             <div class="col">
                 <div class="heading heading-border heading-middle-border heading-middle-border-center">
-                    <h4>Executive Committee <strong>2022-2025</strong></h4>
+                    <h4>Executive Committee</h4>
                 </div>
             </div>
         </div>
@@ -177,7 +177,7 @@ pageHeader([
             <div class="row mt-5">
                 <div class="col">
                     <div class="heading heading-border heading-middle-border heading-middle-border-center">
-                        <h4>Executive Members <strong>2022-2025</strong></h4>
+                        <h4>Executive Members</h4>
                     </div>
                 </div>
             </div>

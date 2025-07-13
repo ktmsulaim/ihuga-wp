@@ -33,7 +33,7 @@
 					</li>
 					<li>
 						<i class="fas fa-caret-right"></i>
-						<a target="_blank" href="http://haj.nic.in/pto/" class="text-decoration-none text-color-light">Portal for haj group organisers</a>
+						<a target="_blank" href="http://pto.haj.gov.in" class="text-decoration-none text-color-light">Portal for haj group organisers</a>
 					</li>
 					<li>
 						<i class="fas fa-caret-right"></i>
